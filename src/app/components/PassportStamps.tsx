@@ -15,7 +15,7 @@ const stamps = [
 
 export function PassportStamps() {
   return (
-    <section className="relative py-32 px-6">
+    <section className="relative py-20 px-5 sm:px-6 sm:py-24 lg:py-32">
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
         <motion.div
@@ -23,18 +23,18 @@ export function PassportStamps() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-16 lg:mb-20"
         >
-          <div className="inline-flex items-center gap-2 backdrop-blur-md bg-white/5 border border-white/10 rounded-full px-6 py-2 mb-6">
-            <Award className="w-4 h-4 text-[#7DD3FC]" />
-            <span className="text-sm text-[#94A3B8] tracking-wider">MILESTONES</span>
+          <div className="inline-flex items-center gap-2 backdrop-blur-md bg-[#241C14]/35 border border-[#B9A88F]/20 rounded-full px-6 py-2 mb-6">
+            <Award className="w-4 h-4 text-[#D89A3A]" />
+            <span className="text-sm text-[#D8CCB8] tracking-wider">MILESTONES</span>
           </div>
-          <h2 className="text-5xl md:text-7xl font-light tracking-tight text-[#F8FAFC] mb-6">
+          <h2 className="text-[clamp(2.75rem,7vw,5rem)] font-light tracking-tight text-[#FFF8EA] mb-6 leading-tight">
             Expedition
             <br />
             Passport
           </h2>
-          <p className="text-lg text-[#94A3B8] max-w-2xl mx-auto">
+          <p className="text-lg text-[#D8CCB8] max-w-2xl mx-auto">
             Collect stamps as you progress through the journey. Each milestone marks a significant
             moment in your Himalayan odyssey.
           </p>
@@ -48,21 +48,21 @@ export function PassportStamps() {
           className="relative"
         >
           {/* Passport background */}
-          <div className="relative backdrop-blur-xl bg-gradient-to-br from-[#07111F] to-[#030712] border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl overflow-hidden">
+          <div className="relative backdrop-blur-xl bg-gradient-to-br from-[#2F261B] via-[#241C14] to-[#15110D] border border-[#B9A88F]/18 rounded-3xl p-5 sm:p-8 md:p-12 shadow-2xl overflow-hidden">
             {/* Decorative elements */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-[#7DD3FC]/5 rounded-full blur-[100px]" />
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#F59E0B]/5 rounded-full blur-[100px]" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[#9BC8D8]/4 rounded-full blur-[100px]" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#D89A3A]/8 rounded-full blur-[100px]" />
 
             {/* Passport header */}
-            <div className="relative text-center mb-12 pb-8 border-b border-white/10">
-              <div className="text-[#E7D8B5] tracking-[0.3em] text-xs mb-2">EXPEDITION PASSPORT</div>
-              <div className="text-3xl md:text-4xl font-light tracking-tight text-[#F8FAFC]">
+            <div className="relative text-center mb-8 pb-8 border-b border-white/10 sm:mb-12">
+              <div className="text-[#F1D59A] tracking-[0.3em] text-xs mb-2">EXPEDITION PASSPORT</div>
+              <div className="text-3xl md:text-4xl font-light tracking-tight text-[#FFF8EA] leading-tight">
                 Spiti Odyssey 2026
               </div>
             </div>
 
             {/* Stamps grid */}
-            <div className="relative grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="relative grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
               {stamps.map((stamp, index) => (
                 <motion.div
                   key={stamp.id}
@@ -76,33 +76,33 @@ export function PassportStamps() {
                   {/* Stamp card */}
                   <div className={`relative backdrop-blur-md border-2 rounded-xl p-6 transition-all ${
                     stamp.unlocked
-                      ? 'bg-white/5 border-[#7DD3FC]/30'
+                      ? 'bg-[#FFF8EA]/6 border-[#D89A3A]/35'
                       : 'bg-white/[0.02] border-white/5 opacity-50'
                   }`}>
                     {/* Stamp number */}
-                    <div className="absolute -top-3 -right-3 w-8 h-8 backdrop-blur-xl bg-[#7DD3FC]/20 border border-[#7DD3FC]/40 rounded-full flex items-center justify-center text-xs text-[#7DD3FC]">
+                    <div className="absolute -top-3 -right-3 w-8 h-8 backdrop-blur-xl bg-[#D89A3A]/22 border border-[#F1D59A]/40 rounded-full flex items-center justify-center text-xs text-[#F1D59A]">
                       {String(stamp.id).padStart(2, '0')}
                     </div>
 
                     {/* Stamp icon */}
                     <div className="mb-4">
                       {stamp.unlocked ? (
-                        <CheckCircle className="w-8 h-8 text-[#7DD3FC]" />
+                        <CheckCircle className="w-8 h-8 text-[#D89A3A]" />
                       ) : (
                         <div className="w-8 h-8 rounded-full border-2 border-dashed border-white/20" />
                       )}
                     </div>
 
                     {/* Stamp details */}
-                    <h4 className="text-[#F8FAFC] mb-2 font-light">{stamp.name}</h4>
-                    <div className="text-sm text-[#94A3B8]">{stamp.location}</div>
+                    <h4 className="text-[#FFF8EA] mb-2 font-light">{stamp.name}</h4>
+                    <div className="text-sm text-[#D8CCB8]">{stamp.location}</div>
 
                     {/* Decorative stamp mark */}
                     {stamp.unlocked && (
                       <div className="absolute bottom-4 right-4 opacity-10 group-hover:opacity-20 transition-opacity">
                         <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                          <circle cx="20" cy="20" r="18" stroke="currentColor" strokeWidth="2" strokeDasharray="3 3" className="text-[#7DD3FC]" />
-                          <text x="20" y="24" textAnchor="middle" className="text-[8px] fill-current text-[#7DD3FC]" fontWeight="bold">
+                          <circle cx="20" cy="20" r="18" stroke="currentColor" strokeWidth="2" strokeDasharray="3 3" className="text-[#D89A3A]" />
+                          <text x="20" y="24" textAnchor="middle" className="text-[8px] fill-current text-[#D89A3A]" fontWeight="bold">
                             ✓
                           </text>
                         </svg>
@@ -121,11 +121,11 @@ export function PassportStamps() {
               transition={{ delay: 0.8 }}
               className="relative mt-12 pt-8 border-t border-white/10 text-center"
             >
-              <div className="inline-flex items-center gap-3 backdrop-blur-xl bg-gradient-to-r from-[#7DD3FC]/10 to-[#F59E0B]/10 border border-white/20 rounded-full px-8 py-4">
-                <Award className="w-6 h-6 text-[#F59E0B]" />
-                <div>
-                  <div className="text-xs text-[#94A3B8] tracking-wider">COMPLETION STATUS</div>
-                  <div className="text-lg text-[#F8FAFC]">9/9 Milestones Collected</div>
+              <div className="inline-flex max-w-full items-center gap-3 backdrop-blur-xl bg-gradient-to-r from-[#9B6241]/16 to-[#D89A3A]/14 border border-[#F1D59A]/24 rounded-full px-5 py-4 sm:px-8">
+                <Award className="w-6 h-6 shrink-0 text-[#D89A3A]" />
+                <div className="min-w-0">
+                  <div className="text-xs text-[#D8CCB8] tracking-wider">COMPLETION STATUS</div>
+                  <div className="text-base text-[#FFF8EA] sm:text-lg">9/9 Milestones Collected</div>
                 </div>
               </div>
             </motion.div>
@@ -135,3 +135,4 @@ export function PassportStamps() {
     </section>
   );
 }
+

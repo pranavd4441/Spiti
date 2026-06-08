@@ -69,7 +69,7 @@ export function DestinationExplorer() {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   return (
-    <section className="relative min-h-screen py-32 px-6">
+    <section className="relative py-20 px-5 sm:px-6 sm:py-24 lg:py-32">
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
         <motion.div
@@ -77,18 +77,18 @@ export function DestinationExplorer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-16 lg:mb-20"
         >
-          <div className="inline-flex items-center gap-2 backdrop-blur-md bg-white/5 border border-white/10 rounded-full px-6 py-2 mb-6">
-            <Compass className="w-4 h-4 text-[#7DD3FC]" />
-            <span className="text-sm text-[#94A3B8] tracking-wider">DESTINATIONS</span>
+          <div className="inline-flex items-center gap-2 backdrop-blur-md bg-[#241C14]/35 border border-[#B9A88F]/20 rounded-full px-6 py-2 mb-6">
+            <Compass className="w-4 h-4 text-[#F1D59A]" />
+            <span className="text-sm text-[#D8CCB8] tracking-wider">DESTINATIONS</span>
           </div>
-          <h2 className="text-5xl md:text-7xl font-light tracking-tight text-[#F8FAFC] mb-6">
+          <h2 className="text-[clamp(2.75rem,7vw,5rem)] font-light tracking-tight text-[#FFF8EA] mb-6 leading-tight">
             Explore The
             <br />
             Unexplored
           </h2>
-          <p className="text-lg text-[#94A3B8] max-w-2xl mx-auto">
+          <p className="text-lg text-[#D8CCB8] max-w-2xl mx-auto">
             Six extraordinary destinations. Each with its own story, mood, and magic.
           </p>
         </motion.div>
@@ -100,7 +100,7 @@ export function DestinationExplorer() {
           viewport={{ once: true }}
           className="relative mb-16"
         >
-          <div className="relative h-[70vh] rounded-3xl overflow-hidden">
+          <div className="relative min-h-[520px] h-[70svh] max-h-[760px] rounded-3xl overflow-hidden">
             <motion.img
               key={selectedIndex}
               initial={{ scale: 1.2, opacity: 0 }}
@@ -112,11 +112,11 @@ export function DestinationExplorer() {
             />
             
             {/* Gradient overlays */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#030712] via-transparent to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#030712]/60 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#15110D]/92 via-[#241C14]/16 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#15110D]/68 via-[#15110D]/10 to-[#9B6241]/18" />
 
             {/* Content overlay */}
-            <div className="absolute inset-0 flex flex-col justify-end p-12">
+            <div className="absolute inset-0 flex flex-col justify-end p-5 sm:p-8 lg:p-12">
               <motion.div
                 key={`content-${selectedIndex}`}
                 initial={{ opacity: 0, y: 30 }}
@@ -125,28 +125,28 @@ export function DestinationExplorer() {
               >
                 {/* Badges */}
                 <div className="flex flex-wrap gap-3 mb-6">
-                  <div className="backdrop-blur-xl bg-white/10 border border-white/20 rounded-full px-4 py-2 text-xs text-[#7DD3FC] tracking-wider">
+                  <div className="backdrop-blur-xl bg-[#241C14]/42 border border-[#B9A88F]/25 rounded-full px-4 py-2 text-xs text-[#F1D59A] tracking-wider">
                     {destinations[selectedIndex].type.toUpperCase()}
                   </div>
-                  <div className="backdrop-blur-xl bg-white/10 border border-white/20 rounded-full px-4 py-2 text-xs text-[#F59E0B] tracking-wider">
+                  <div className="backdrop-blur-xl bg-[#241C14]/42 border border-[#D89A3A]/28 rounded-full px-4 py-2 text-xs text-[#D89A3A] tracking-wider">
                     DAY {String(destinations[selectedIndex].day).padStart(2, '0')}
                   </div>
-                  <div className="backdrop-blur-xl bg-white/10 border border-white/20 rounded-full px-4 py-2 text-xs text-[#94A3B8]">
+                  <div className="backdrop-blur-xl bg-[#241C14]/42 border border-[#B9A88F]/25 rounded-full px-4 py-2 text-xs text-[#D8CCB8]">
                     <Mountain className="w-3 h-3 inline mr-1" />
                     {destinations[selectedIndex].altitude}
                   </div>
                 </div>
 
-                <h3 className="text-4xl md:text-6xl font-light tracking-tight text-[#F8FAFC] mb-4">
+                <h3 className="text-[clamp(2.25rem,6vw,3.75rem)] font-light tracking-tight text-[#FFF8EA] mb-4 leading-tight">
                   {destinations[selectedIndex].name}
                 </h3>
 
-                <div className="flex items-center gap-2 mb-4 text-[#E7D8B5]">
+                <div className="flex items-center gap-2 mb-4 text-[#F1D59A]">
                   <MapPin className="w-4 h-4" />
                   <span>{destinations[selectedIndex].location}</span>
                 </div>
 
-                <p className="text-lg text-[#94A3B8] max-w-2xl leading-relaxed">
+                <p className="text-base sm:text-lg text-[#D8CCB8] max-w-2xl leading-relaxed">
                   {destinations[selectedIndex].description}
                 </p>
               </motion.div>
@@ -166,7 +166,7 @@ export function DestinationExplorer() {
               onClick={() => setSelectedIndex(index)}
               className={`group relative aspect-[3/4] rounded-xl overflow-hidden transition-all ${
                 selectedIndex === index
-                  ? 'ring-2 ring-[#7DD3FC] scale-105'
+                  ? 'ring-2 ring-[#F1D59A] scale-105'
                   : 'hover:scale-105'
               }`}
             >
@@ -176,15 +176,15 @@ export function DestinationExplorer() {
                 className="w-full h-full object-cover"
               />
               
-              <div className="absolute inset-0 bg-gradient-to-t from-[#030712] via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#15110D]/90 via-[#241C14]/10 to-transparent" />
               
               <div className="absolute inset-0 p-4 flex flex-col justify-end">
-                <div className="text-xs text-[#7DD3FC] mb-1">{dest.mood}</div>
-                <div className="text-sm text-[#F8FAFC] font-light">{dest.name}</div>
+                <div className="text-xs text-[#F1D59A] mb-1">{dest.mood}</div>
+                <div className="text-sm text-[#FFF8EA] font-light">{dest.name}</div>
               </div>
 
               {/* Hover indicator */}
-              <div className={`absolute inset-0 border-2 border-[#7DD3FC]/0 group-hover:border-[#7DD3FC]/50 transition-all rounded-xl`} />
+              <div className={`absolute inset-0 border-2 border-[#F1D59A]/0 group-hover:border-[#F1D59A]/45 transition-all rounded-xl`} />
             </motion.button>
           ))}
         </div>
@@ -192,3 +192,4 @@ export function DestinationExplorer() {
     </section>
   );
 }
+

@@ -33,15 +33,11 @@ export default function App() {
   }, []);
 
   return (
-    <main className="relative min-h-screen overflow-x-hidden bg-[#030712] text-[#F8FAFC]">
+    <main className="relative min-h-screen overflow-x-hidden bg-[#15110D] text-[#FFF8EA]">
       <AtmosphericEffect />
       <Navigation scrollProgress={scrollProgress} currentChapter={currentChapter} />
       <HeroSection />
       <RouteMap />
-      <JourneyChapters />
-      <DestinationExplorer />
-      <PassportStamps />
-      <AccommodationSection />
       <EndingSection />
     </main>
   );

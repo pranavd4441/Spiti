@@ -7,26 +7,22 @@ interface NavigationProps {
 }
 
 export function Navigation({ scrollProgress, currentChapter }: NavigationProps) {
-  const chapters = [
-    'Hero', 'Route', 'Journey', 'Destinations', 'Stamps', 'Stay', 'End'
-  ];
-
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className="fixed top-0 left-0 right-0 z-50 px-6 py-4"
+      className="fixed top-0 left-0 right-0 z-50 px-3 py-3 sm:px-6 sm:py-4"
     >
       <div className="max-w-7xl mx-auto">
         {/* Glassmorphism container */}
-        <div className="relative backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl px-8 py-4 shadow-2xl">
+        <div className="relative backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl px-4 py-3 shadow-2xl sm:px-8 sm:py-4">
           {/* Logo */}
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <Mountain className="w-6 h-6 text-[#7DD3FC]" />
-              <div>
-                <div className="text-sm font-light tracking-[0.3em] text-[#E7D8B5]">SPITI ODYSSEY</div>
-                <div className="text-xs text-[#94A3B8] tracking-wider">3D Himalayan Expedition</div>
+          <div className="flex items-center justify-between gap-4">
+            <div className="flex min-w-0 items-center gap-3">
+              <Mountain className="h-5 w-5 shrink-0 text-[#7DD3FC] sm:h-6 sm:w-6" />
+              <div className="min-w-0">
+                <div className="truncate text-xs font-light tracking-[0.22em] text-[#E7D8B5] sm:text-sm sm:tracking-[0.3em]">SPITI ODYSSEY</div>
+                <div className="hidden text-xs text-[#94A3B8] tracking-wider sm:block">3D Himalayan Expedition</div>
               </div>
             </div>
 

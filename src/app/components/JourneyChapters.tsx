@@ -99,15 +99,15 @@ function Chapter({ chapter, index }: { chapter: typeof chapters[0], index: numbe
   const isEven = index % 2 === 0;
 
   return (
-    <div ref={chapterRef} className="relative h-screen flex items-center">
+    <div ref={chapterRef} className="relative flex min-h-[720px] items-center py-16 lg:min-h-svh lg:py-20">
       <motion.div
         style={{ opacity }}
-        className={`w-full max-w-7xl mx-auto px-6 flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-12`}
+        className={`w-full max-w-7xl mx-auto px-5 sm:px-6 flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-8 lg:gap-12`}
       >
         {/* Image */}
         <motion.div
           style={{ scale }}
-          className="relative w-full md:w-1/2 aspect-[4/5] overflow-hidden rounded-3xl"
+          className="relative w-full max-w-[520px] md:w-1/2 aspect-[4/5] max-h-[72svh] overflow-hidden rounded-3xl"
         >
           <motion.div
             style={{ y }}
@@ -119,19 +119,19 @@ function Chapter({ chapter, index }: { chapter: typeof chapters[0], index: numbe
               className="w-full h-full object-cover"
             />
             {/* Overlay gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#030712]/60 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#15110D]/68 via-[#241C14]/12 to-transparent" />
           </motion.div>
 
           {/* Day badge */}
-          <div className="absolute top-6 left-6 backdrop-blur-xl bg-white/10 border border-white/20 rounded-full px-6 py-3">
-            <div className="text-xs text-[#94A3B8] tracking-wider">DAY</div>
-            <div className="text-2xl text-[#7DD3FC]">{String(chapter.day).padStart(2, '0')}</div>
+          <div className="absolute top-6 left-6 backdrop-blur-xl bg-[#241C14]/45 border border-[#F1D59A]/25 rounded-full px-6 py-3">
+            <div className="text-xs text-[#D8CCB8] tracking-wider">DAY</div>
+            <div className="text-2xl text-[#F1D59A]">{String(chapter.day).padStart(2, '0')}</div>
           </div>
 
           {/* Altitude badge */}
-          <div className="absolute bottom-6 right-6 backdrop-blur-xl bg-white/10 border border-white/20 rounded-xl px-4 py-2">
-            <div className="text-xs text-[#94A3B8]">Altitude</div>
-            <div className="text-sm text-[#F8FAFC]">{chapter.altitude}</div>
+          <div className="absolute bottom-6 right-6 backdrop-blur-xl bg-[#241C14]/45 border border-[#B9A88F]/25 rounded-xl px-4 py-2">
+            <div className="text-xs text-[#D8CCB8]">Altitude</div>
+            <div className="text-sm text-[#FFF8EA]">{chapter.altitude}</div>
           </div>
         </motion.div>
 
@@ -144,19 +144,19 @@ function Chapter({ chapter, index }: { chapter: typeof chapters[0], index: numbe
           className={`w-full md:w-1/2 ${isEven ? 'md:text-left' : 'md:text-right'}`}
         >
           {/* Mood label */}
-          <div className={`inline-flex items-center gap-2 backdrop-blur-md bg-white/5 border border-white/10 rounded-full px-4 py-2 mb-6 text-xs text-[#7DD3FC] tracking-wider`}>
+          <div className={`inline-flex items-center gap-2 backdrop-blur-md bg-[#241C14]/35 border border-[#B9A88F]/20 rounded-full px-4 py-2 mb-6 text-xs text-[#F1D59A] tracking-wider`}>
             {chapter.mood.toUpperCase()}
           </div>
 
-          <h3 className="text-5xl md:text-7xl font-light tracking-tight text-[#F8FAFC] mb-4">
+          <h3 className="text-[clamp(2.75rem,6vw,4.5rem)] font-light tracking-tight text-[#FFF8EA] mb-4 leading-tight">
             {chapter.title}
           </h3>
           
-          <div className="text-xl md:text-2xl text-[#E7D8B5] mb-8 font-light">
+          <div className="text-xl md:text-2xl text-[#F1D59A] mb-6 lg:mb-8 font-light">
             {chapter.subtitle}
           </div>
 
-          <p className="text-lg text-[#94A3B8] leading-relaxed max-w-md">
+          <p className="text-lg text-[#D8CCB8] leading-relaxed max-w-md">
             {chapter.description}
           </p>
 
@@ -166,7 +166,7 @@ function Chapter({ chapter, index }: { chapter: typeof chapters[0], index: numbe
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className={`h-px bg-gradient-to-r ${isEven ? 'from-[#7DD3FC]' : 'from-transparent to-[#7DD3FC]'} mt-8 max-w-xs ${isEven ? '' : 'ml-auto'}`}
+            className={`h-px bg-gradient-to-r ${isEven ? 'from-[#D89A3A]' : 'from-transparent to-[#D89A3A]'} mt-8 max-w-xs ${isEven ? '' : 'ml-auto'}`}
           />
         </motion.div>
       </motion.div>
@@ -176,19 +176,19 @@ function Chapter({ chapter, index }: { chapter: typeof chapters[0], index: numbe
 
 export function JourneyChapters() {
   return (
-    <section id="journey-chapters" className="relative py-32">
+    <section id="journey-chapters" className="relative py-20 sm:py-24 lg:py-32">
       {/* Section header */}
-      <div className="text-center mb-32 px-6">
+      <div className="text-center mb-16 px-5 sm:px-6 lg:mb-24">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-5xl md:text-7xl font-light tracking-tight text-[#F8FAFC] mb-6">
+          <h2 className="text-[clamp(2.75rem,7vw,5rem)] font-light tracking-tight text-[#FFF8EA] mb-6 leading-tight">
             The Journey
           </h2>
-          <p className="text-lg text-[#94A3B8] max-w-2xl mx-auto">
+          <p className="text-lg text-[#D8CCB8] max-w-2xl mx-auto">
             Nine days of environmental transitions. Each chapter tells a story.
             <br />
             Every turn reveals something extraordinary.
@@ -205,3 +205,4 @@ export function JourneyChapters() {
     </section>
   );
 }
+

@@ -1,6 +1,5 @@
 import { motion, useScroll, useTransform } from 'motion/react';
 import { useRef } from 'react';
-import { Heart, Share2, BookOpen } from 'lucide-react';
 
 export function EndingSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -13,7 +12,7 @@ export function EndingSection() {
   const opacity = useTransform(scrollYProgress, [0, 0.3, 0.8, 1], [0, 1, 1, 0.7]);
 
   return (
-    <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section ref={sectionRef} className="relative flex min-h-svh flex-col justify-center overflow-hidden px-5 py-20 sm:px-6 sm:py-24 lg:py-32">
       {/* Background image with parallax */}
       <motion.div
         style={{ y }}
@@ -26,14 +25,14 @@ export function EndingSection() {
         />
         
         {/* Warm gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#030712] via-[#F59E0B]/10 to-[#030712]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#030712] via-transparent to-[#030712]/50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#15110D]/92 via-[#9B6241]/18 to-[#15110D]/92" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#15110D] via-[#15110D]/18 to-[#15110D]/42" />
       </motion.div>
 
       {/* Content */}
       <motion.div
         style={{ opacity }}
-        className="relative z-10 max-w-4xl mx-auto px-6 text-center"
+        className="relative z-10 mx-auto w-full max-w-4xl text-center"
       >
         {/* Decorative line */}
         <motion.div
@@ -41,7 +40,7 @@ export function EndingSection() {
           whileInView={{ scaleX: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="h-px bg-gradient-to-r from-transparent via-[#F59E0B] to-transparent mb-12"
+          className="h-px bg-gradient-to-r from-transparent via-[#D89A3A] to-transparent mb-8 sm:mb-12"
         />
 
         {/* Main quote */}
@@ -50,17 +49,17 @@ export function EndingSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mb-12"
+          className="mb-8 sm:mb-12"
         >
-          <blockquote className="text-3xl md:text-5xl lg:text-6xl font-light tracking-tight text-[#F8FAFC] leading-tight mb-8">
+          <blockquote className="text-[clamp(2rem,6vw,3.75rem)] font-light tracking-tight text-[#FFF8EA] leading-tight mb-6 sm:mb-8">
             "The road ends,
             <br />
             but the memory
             <br />
-            <span className="text-[#E7D8B5]">remains forever."</span>
+            <span className="text-[#F1D59A]">remains forever."</span>
           </blockquote>
 
-          <div className="text-lg text-[#94A3B8] tracking-[0.2em]">
+          <div className="text-sm sm:text-lg text-[#D8CCB8] tracking-[0.18em] sm:tracking-[0.2em]">
             — SPITI ODYSSEY
           </div>
         </motion.div>
@@ -71,7 +70,7 @@ export function EndingSection() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="text-lg md:text-xl text-[#94A3B8] leading-relaxed mb-16 max-w-2xl mx-auto"
+          className="text-base md:text-xl text-[#D8CCB8] leading-relaxed mb-10 max-w-2xl mx-auto sm:mb-16"
         >
           Nine days through the Himalayas. Mountains that touched the sky. Monasteries that
           whispered ancient wisdom. Roads that tested courage. And silence that spoke louder
@@ -84,56 +83,20 @@ export function EndingSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6 }}
-          className="grid grid-cols-3 gap-8 mb-16"
+          className="grid grid-cols-1 gap-4 mb-10 sm:grid-cols-3 sm:gap-6 sm:mb-16 lg:gap-8"
         >
-          <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-6">
-            <div className="text-4xl md:text-5xl font-light text-[#F59E0B] mb-2">1,200</div>
-            <div className="text-sm text-[#94A3B8] tracking-wider">KILOMETERS</div>
+          <div className="backdrop-blur-xl bg-[#241C14]/38 border border-[#B9A88F]/18 rounded-2xl p-5 sm:p-6">
+            <div className="text-[clamp(2.25rem,5vw,3rem)] font-light text-[#D89A3A] mb-2">1,200</div>
+            <div className="text-sm text-[#D8CCB8] tracking-wider">KILOMETERS</div>
           </div>
-          <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-6">
-            <div className="text-4xl md:text-5xl font-light text-[#7DD3FC] mb-2">4,590</div>
-            <div className="text-sm text-[#94A3B8] tracking-wider">METERS HIGH</div>
+          <div className="backdrop-blur-xl bg-[#241C14]/38 border border-[#B9A88F]/18 rounded-2xl p-5 sm:p-6">
+            <div className="text-[clamp(2.25rem,5vw,3rem)] font-light text-[#9BC8D8] mb-2">4,590</div>
+            <div className="text-sm text-[#D8CCB8] tracking-wider">METERS HIGH</div>
           </div>
-          <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-6">
-            <div className="text-4xl md:text-5xl font-light text-[#E7D8B5] mb-2">∞</div>
-            <div className="text-sm text-[#94A3B8] tracking-wider">MEMORIES</div>
+          <div className="backdrop-blur-xl bg-[#241C14]/38 border border-[#B9A88F]/18 rounded-2xl p-5 sm:p-6">
+            <div className="text-[clamp(2.25rem,5vw,3rem)] font-light text-[#F1D59A] mb-2">∞</div>
+            <div className="text-sm text-[#D8CCB8] tracking-wider">MEMORIES</div>
           </div>
-        </motion.div>
-
-        {/* Actions */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.8 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
-        >
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="group relative backdrop-blur-xl bg-white/10 border border-white/20 rounded-full px-8 py-4 text-sm tracking-[0.2em] hover:bg-white/15 transition-all flex items-center gap-3"
-          >
-            <Heart className="w-5 h-5 text-[#F59E0B]" />
-            <span>SAVE TO WISHLIST</span>
-          </motion.button>
-
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="group relative backdrop-blur-xl bg-white/10 border border-white/20 rounded-full px-8 py-4 text-sm tracking-[0.2em] hover:bg-white/15 transition-all flex items-center gap-3"
-          >
-            <Share2 className="w-5 h-5 text-[#7DD3FC]" />
-            <span>SHARE JOURNEY</span>
-          </motion.button>
-
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="group relative backdrop-blur-xl bg-gradient-to-r from-[#7DD3FC]/20 to-[#F59E0B]/20 border border-white/30 rounded-full px-8 py-4 text-sm tracking-[0.2em] hover:from-[#7DD3FC]/30 hover:to-[#F59E0B]/30 transition-all flex items-center gap-3"
-          >
-            <BookOpen className="w-5 h-5 text-[#E7D8B5]" />
-            <span>PLAN YOUR TRIP</span>
-          </motion.button>
         </motion.div>
 
         {/* Decorative line */}
@@ -142,7 +105,7 @@ export function EndingSection() {
           whileInView={{ scaleX: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 1 }}
-          className="h-px bg-gradient-to-r from-transparent via-[#F59E0B] to-transparent mt-12"
+          className="h-px bg-gradient-to-r from-transparent via-[#D89A3A] to-transparent mt-12"
         />
       </motion.div>
 
@@ -152,19 +115,13 @@ export function EndingSection() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ delay: 1.2 }}
-        className="absolute bottom-8 left-0 right-0 px-6"
+        className="relative z-10 mt-12 w-full"
       >
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-[#94A3B8]">
-          <div className="flex items-center gap-2">
-            <div className="text-[#E7D8B5] tracking-[0.3em]">SPITI ODYSSEY</div>
+        <div className="max-w-7xl mx-auto flex items-center justify-center text-sm text-[#D8CCB8]">
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            <div className="text-[#F1D59A] tracking-[0.3em]">SPITI ODYSSEY</div>
             <span>•</span>
             <div>2026</div>
-          </div>
-          
-          <div className="flex items-center gap-6">
-            <button className="hover:text-[#7DD3FC] transition-colors">About</button>
-            <button className="hover:text-[#7DD3FC] transition-colors">Gallery</button>
-            <button className="hover:text-[#7DD3FC] transition-colors">Contact</button>
           </div>
         </div>
       </motion.footer>
@@ -188,10 +145,11 @@ export function EndingSection() {
               repeat: Infinity,
               delay: Math.random() * 5
             }}
-            className="absolute w-1 h-1 bg-[#F59E0B] rounded-full"
+            className="absolute w-1 h-1 bg-[#D89A3A] rounded-full"
           />
         ))}
       </div>
     </section>
   );
 }
+

@@ -33,9 +33,9 @@ const accommodations = [
 
 export function AccommodationSection() {
   return (
-    <section className="relative py-32 px-6 overflow-hidden">
+    <section className="relative py-20 px-5 sm:px-6 sm:py-24 lg:py-32 overflow-hidden">
       {/* Background ambient light */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#F59E0B]/5 rounded-full blur-[150px]" />
+      <div className="absolute top-1/2 left-1/2 h-[min(800px,90vw)] w-[min(800px,90vw)] -translate-x-1/2 -translate-y-1/2 bg-[#D89A3A]/8 rounded-full blur-[150px]" />
 
       <div className="relative max-w-7xl mx-auto">
         {/* Section header */}
@@ -44,23 +44,23 @@ export function AccommodationSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-16 lg:mb-20"
         >
-          <div className="inline-flex items-center gap-2 backdrop-blur-md bg-white/5 border border-white/10 rounded-full px-6 py-2 mb-6">
-            <Home className="w-4 h-4 text-[#7DD3FC]" />
-            <span className="text-sm text-[#94A3B8] tracking-wider">ACCOMMODATION</span>
+          <div className="inline-flex items-center gap-2 backdrop-blur-md bg-[#241C14]/35 border border-[#B9A88F]/20 rounded-full px-6 py-2 mb-6">
+            <Home className="w-4 h-4 text-[#D89A3A]" />
+            <span className="text-sm text-[#D8CCB8] tracking-wider">ACCOMMODATION</span>
           </div>
-          <h2 className="text-5xl md:text-7xl font-light tracking-tight text-[#F8FAFC] mb-6">
+          <h2 className="text-[clamp(2.75rem,7vw,5rem)] font-light tracking-tight text-[#FFF8EA] mb-6 leading-tight">
             Rest & Recharge
           </h2>
-          <p className="text-lg text-[#94A3B8] max-w-2xl mx-auto">
+          <p className="text-lg text-[#D8CCB8] max-w-2xl mx-auto">
             Comfortable stays in the mountains. From hotels to camps, each location offers
             a unique experience of Himalayan hospitality.
           </p>
         </motion.div>
 
         {/* Accommodation cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {accommodations.map((place, index) => (
             <motion.div
               key={place.name}
@@ -72,7 +72,7 @@ export function AccommodationSection() {
               className="group relative"
             >
               {/* Card */}
-              <div className="relative backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl overflow-hidden transition-all duration-300 group-hover:border-white/20">
+              <div className="relative backdrop-blur-xl bg-[#241C14]/38 border border-[#B9A88F]/18 rounded-2xl overflow-hidden transition-all duration-300 group-hover:border-[#F1D59A]/28">
                 {/* Image */}
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <img
@@ -80,20 +80,20 @@ export function AccommodationSection() {
                     alt={place.name}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#030712] via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#15110D]/90 via-[#241C14]/12 to-transparent" />
 
                   {/* Type badge */}
-                  <div className="absolute top-4 left-4 backdrop-blur-xl bg-white/20 border border-white/30 rounded-full px-4 py-2 flex items-center gap-2">
+                  <div className="absolute top-4 left-4 backdrop-blur-xl bg-[#241C14]/45 border border-[#F1D59A]/30 rounded-full px-4 py-2 flex items-center gap-2">
                     {place.type === 'Camp' ? (
-                      <Tent className="w-4 h-4 text-[#F59E0B]" />
+                      <Tent className="w-4 h-4 text-[#D89A3A]" />
                     ) : (
-                      <Home className="w-4 h-4 text-[#7DD3FC]" />
+                      <Home className="w-4 h-4 text-[#9BC8D8]" />
                     )}
                     <span className="text-xs text-white tracking-wider">{place.type.toUpperCase()}</span>
                   </div>
 
                   {/* Altitude badge */}
-                  <div className="absolute top-4 right-4 backdrop-blur-xl bg-white/20 border border-white/30 rounded-full px-3 py-1 flex items-center gap-1">
+                  <div className="absolute top-4 right-4 backdrop-blur-xl bg-[#241C14]/45 border border-[#B9A88F]/30 rounded-full px-3 py-1 flex items-center gap-1">
                     <Mountain className="w-3 h-3 text-white" />
                     <span className="text-xs text-white">{place.altitude}</span>
                   </div>
@@ -101,9 +101,9 @@ export function AccommodationSection() {
 
                 {/* Content */}
                 <div className="p-6">
-                  <div className="text-sm text-[#7DD3FC] mb-2">{place.location}</div>
-                  <h3 className="text-xl text-[#F8FAFC] mb-3 font-light">{place.name}</h3>
-                  <p className="text-[#94A3B8] text-sm leading-relaxed mb-4">
+                  <div className="text-sm text-[#D89A3A] mb-2">{place.location}</div>
+                  <h3 className="text-xl text-[#FFF8EA] mb-3 font-light">{place.name}</h3>
+                  <p className="text-[#D8CCB8] text-sm leading-relaxed mb-4">
                     {place.description}
                   </p>
 
@@ -112,7 +112,7 @@ export function AccommodationSection() {
                     {place.amenities.map((amenity) => (
                       <div
                         key={amenity}
-                        className="text-xs text-[#94A3B8] bg-white/5 border border-white/10 rounded-full px-3 py-1"
+                        className="text-xs text-[#D8CCB8] bg-[#FFF8EA]/6 border border-[#B9A88F]/16 rounded-full px-3 py-1"
                       >
                         {amenity}
                       </div>
@@ -121,7 +121,7 @@ export function AccommodationSection() {
                 </div>
 
                 {/* Hover indicator */}
-                <div className="absolute inset-0 border-2 border-[#7DD3FC]/0 group-hover:border-[#7DD3FC]/30 rounded-2xl transition-all pointer-events-none" />
+                <div className="absolute inset-0 border-2 border-[#F1D59A]/0 group-hover:border-[#F1D59A]/28 rounded-2xl transition-all pointer-events-none" />
               </div>
             </motion.div>
           ))}
@@ -133,19 +133,19 @@ export function AccommodationSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6 }}
-          className="mt-12 backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-8"
+          className="mt-12 backdrop-blur-xl bg-[#241C14]/36 border border-[#B9A88F]/18 rounded-2xl p-5 sm:p-8"
         >
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
-              <h4 className="text-xl text-[#F8FAFC] mb-2 font-light">Essential Information</h4>
-              <p className="text-[#94A3B8]">
+              <h4 className="text-xl text-[#FFF8EA] mb-2 font-light">Essential Information</h4>
+              <p className="text-[#D8CCB8]">
                 All accommodations include basic amenities. Pre-booking is recommended during peak season (June-September).
               </p>
             </div>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="backdrop-blur-xl bg-white/10 border border-white/20 rounded-full px-8 py-3 text-sm tracking-wider hover:bg-white/15 transition-all whitespace-nowrap"
+              className="w-full backdrop-blur-xl bg-[#FFF8EA]/8 border border-[#F1D59A]/25 rounded-full px-6 py-3 text-sm tracking-wider hover:bg-[#FFF8EA]/14 transition-all sm:w-auto sm:px-8"
             >
               VIEW ALL STAYS
             </motion.button>
@@ -155,3 +155,4 @@ export function AccommodationSection() {
     </section>
   );
 }
+
